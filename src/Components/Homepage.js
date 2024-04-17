@@ -8,7 +8,7 @@ import { FaCrown } from "react-icons/fa";
 import axios from 'axios';
 import EditModal from './EditModal';
 import DeleteModal from './DeleteModal';
-import AddModal from './AddModal'; // Import AddModal component
+import AddModal from './AddModal'; 
 import { IoIosAddCircle } from "react-icons/io";
 
 const Homepage = () => {
@@ -18,8 +18,7 @@ const Homepage = () => {
     const [showEditModal, setShowEditModal] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
-    const [showAddModal, setShowAddModal] = useState(false); // State for AddModal
-
+    const [showAddModal, setShowAddModal] = useState(false); 
     const handleCloseEditModal = () => setShowEditModal(false);
     const handleShowEditModal = () => setShowEditModal(true);
     const handleCloseDeleteModal = () => setShowDeleteModal(false);
@@ -28,8 +27,8 @@ const Homepage = () => {
         setShowDeleteModal(true);
     }
 
-    const handleCloseAddModal = () => setShowAddModal(false); // Add handleCloseAddModal function
-    const handleShowAddModal = () => setShowAddModal(true); // Add handleShowAddModal function
+    const handleCloseAddModal = () => setShowAddModal(false); 
+    const handleShowAddModal = () => setShowAddModal(true); 
 
     useEffect(() => {
         async function fetchAllUsers() {
@@ -125,7 +124,7 @@ const Homepage = () => {
             </Table>
             <EditModal show={showEditModal} handleClose={handleCloseEditModal} user={selectedUser} />
             <DeleteModal show={showDeleteModal} handleClose={handleCloseDeleteModal} handleDelete={() => deleteHandler(selectedUser)} />
-            <AddModal show={showAddModal} handleClose={handleCloseAddModal} /> {/* Add AddModal component */}
+            <AddModal show={showAddModal} handleClose={handleCloseAddModal} /> 
             {
                 loggedUser && loggedUser.loggedInUser.Role === 'Admin' ? (
                     <IoIosAddCircle
@@ -135,13 +134,13 @@ const Homepage = () => {
                             bottom: '20px',
                             right: '20px',
                             cursor: 'pointer',
-                            zIndex: '1000', // Ensure button is above other content
-                            '@media (max-width: 768px)': { // Adjust position for smaller screens
+                            zIndex: '1000', 
+                            '@media (max-width: 768px)': { 
                                 bottom: '10px',
                                 right: '10px',
                             }
                         }}
-                        onClick={handleShowAddModal} // Add onClick event to show AddModal
+                        onClick={handleShowAddModal} 
                     />
                 ) : null
             }

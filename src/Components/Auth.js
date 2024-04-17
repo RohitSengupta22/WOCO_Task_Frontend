@@ -54,7 +54,7 @@ const Auth = () => {
         const { name, value } = e.target;
         setSignupcred({ ...signupcred, [name]: value });
     
-        // Check which field is being edited and set the appropriate error message
+        
         const nameRegex = /^[A-Z][a-zA-Z0-9]{2,}/;
         const passRegex = /^(?=.*[A-Z])[a-zA-Z0-9]{6,}/;
         if (name === 'FirstName' && !nameRegex.test(value)) {
@@ -79,7 +79,7 @@ const Auth = () => {
         const passRegex = /^(?=.*[A-Z])[a-zA-Z0-9]{6,}/;
 
         if (!value) {
-            setPassError(''); // Clear the error message if the password is empty
+            setPassError(''); 
         } else if (name=='Password' && !passRegex.test(value)) {
             setPassError('Min 6 Characters Required & Must Contain Min 1 Uppercase Character');
         } else {
@@ -172,7 +172,7 @@ const Auth = () => {
                 localStorage.setItem('token', res.token);
                 navigate('/home')
             } else {
-                // alert("invalid credentials")
+                
                 wrongCreds();
             }
         } catch (error) {
